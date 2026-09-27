@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --color-ink: #f3f4f6;
+  --color-mist: #c5c9d0;
+  --color-silver: #e4e6ea;
+  --color-charcoal: #121416;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-charcoal);
+  background-image:
+    radial-gradient(ellipse 55% 40% at 85% -5%, rgb(255 255 255 / 0.14), transparent 55%),
+    radial-gradient(ellipse 45% 35% at 0% 20%, rgb(180 186 196 / 0.16), transparent 50%),
+    radial-gradient(ellipse 40% 30% at 70% 80%, rgb(255 255 255 / 0.06), transparent 55%);
+  color: var(--color-ink);
+}
+
+.glass {
+  background-color: rgb(255 255 255 / 0.08);
+  border: 1px solid rgb(255 255 255 / 0.15);
+  box-shadow: 0 24px 60px -36px rgb(0 0 0 / 0.7);
+  backdrop-filter: blur(24px);
+}
+
+::selection {
+  background: #e4e6ea;
+  color: #121416;
+}
+
+:focus-visible {
+  outline: 2px solid #e4e6ea;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
