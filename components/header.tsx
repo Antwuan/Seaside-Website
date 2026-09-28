@@ -9,7 +9,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-30 border-b border-white/10 bg-charcoal/55 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
-        <a href="#top" className="leading-none text-ink" aria-label={studioName}>
+        <a href="/" className="leading-none text-ink" aria-label={studioName}>
           <span className="block font-display text-xl tracking-tight">Seaside</span>
           <span className="mt-1 block text-[10px] font-medium uppercase tracking-[0.22em] text-mist">
             Web Studio
@@ -25,7 +25,7 @@ export function Header() {
         </nav>
 
         <a
-          href="#contact"
+          href="/#contact"
           className="glass hidden rounded-full px-4 py-2 text-sm font-medium text-ink hover:bg-white/15 md:inline-flex"
         >
           Email us
@@ -62,7 +62,7 @@ export function Header() {
             ))}
             <li>
               <a
-                href="#contact"
+                href="/#contact"
                 className="glass mt-2 inline-flex rounded-full px-4 py-2 text-sm font-medium text-ink"
                 onClick={() => setOpen(false)}
               >

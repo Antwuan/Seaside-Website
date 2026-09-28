@@ -1,7 +1,15 @@
 import { ContactForm } from "@/components/contact-form";
 import { Header } from "@/components/header";
 import { ProductExample } from "@/components/product-example";
-import { contactEmail, included, steps, studioName } from "@/lib/site";
+import { SiteFooter } from "@/components/site-footer";
+import {
+  contactEmail,
+  included,
+  legalName,
+  platformOffer,
+  steps,
+  studioName,
+} from "@/lib/site";
 
 export default function Page() {
   return (
@@ -44,6 +52,24 @@ export default function Page() {
             </div>
           </div>
           <ProductExample />
+        </section>
+
+        <section id="about" className="scroll-mt-24">
+          <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:py-20">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-mist">About</p>
+            <h2 className="mt-3 max-w-2xl font-display text-4xl leading-none tracking-tight text-ink sm:text-5xl">
+              What {studioName} sells.
+            </h2>
+            <div className="glass mt-10 max-w-3xl rounded-3xl p-6 sm:p-8">
+              <p className="text-base leading-relaxed text-mist">{platformOffer}</p>
+              <p className="mt-4 text-sm leading-relaxed text-mist">
+                <span className="font-medium text-ink">{legalName}</span> builds and hosts the
+                software; each client connects their own Stripe account so customer payments go
+                directly to them. Seaside is not the merchant of record for orders on client
+                sites.
+              </p>
+            </div>
+          </div>
         </section>
 
         <section id="included" className="scroll-mt-24">
@@ -111,12 +137,7 @@ export default function Page() {
           </div>
         </section>
       </main>
-      <footer className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-8 text-sm text-mist sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <p className="font-display text-lg text-ink">{studioName}</p>
-          <p>Websites for small businesses.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -1,6 +1,38 @@
 export const studioName = "Seaside Web Studio";
 
+/** Must match the legal name on your Stripe account. */
+export const legalName = "Seaside Web Studio";
+
+export const siteUrl = "https://seasidewebstudio.com";
+
 export const contactEmail = "hello@seasidewebstudio.com";
+
+/** Same inbox as contactEmail; shown on policy pages and footer. */
+export const supportEmail = contactEmail;
+
+/** Set when you have a business phone; shown in footer and policies. */
+export const supportPhone: string | null = null;
+
+/**
+ * Mailing address on file with Stripe. Fill in line1–postalCode before verification;
+ * leave line1 empty to hide the street block until it is ready.
+ */
+export const businessAddress = {
+  line1: "",
+  city: "",
+  region: "",
+  postalCode: "",
+  country: "United States",
+} as const;
+
+export function formatBusinessAddress(): string | null {
+  const { line1, city, region, postalCode, country } = businessAddress;
+  if (!line1.trim()) {
+    return null;
+  }
+  const cityLine = [city, region, postalCode].filter((part) => part.trim()).join(", ");
+  return [line1, cityLine, country].filter(Boolean).join("\n");
+}
 
 export const exampleSite = {
   name: "Test Restaurant2",
@@ -8,10 +40,21 @@ export const exampleSite = {
 } as const;
 
 export const nav = [
-  { href: "#included", label: "Included" },
-  { href: "#process", label: "Process" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#included", label: "Included" },
+  { href: "/#process", label: "Process" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
+
+export const policyLinks = [
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
+  { href: "/refund-policy", label: "Refund policy" },
+  { href: "/cancellation-policy", label: "Cancellation policy" },
+] as const;
+
+export const platformOffer =
+  "Seaside Web Studio provides hosted, branded websites and admin tools for independent small businesses. We may charge setup or subscription fees to the business owner; their customers pay that business through Stripe on the business’s own site.";
 
 export const included = [
   {

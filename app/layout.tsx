@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Outfit } from "next/font/google";
+import { siteUrl, studioName } from "@/lib/site";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -13,14 +14,22 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Seaside Web Studio — websites for small businesses",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${studioName} — websites for small businesses`,
+    template: `%s — ${studioName}`,
+  },
   description:
     "Seaside Web Studio builds a branded website for one small business. Customers order or book on your domain. Payments go to you. You run the dashboard, email, and hours.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Seaside Web Studio",
+    title: studioName,
     description:
       "A branded website for one small business — orders or bookings, checkout, and a dashboard you run yourself.",
     type: "website",
+    url: siteUrl,
   },
 };
 
